@@ -1,0 +1,45 @@
+
+
+gameInfoIni[0][0] //パッドの番号？00でパッド FFでキーボード
+gameInfoIni[1][0] //left	//パッドの場合FFで方向キーそのまま//キーボードはDirectInputのキーコード
+gameInfoIni[2][0] //right	//パッドの場合FFで方向キーそのまま
+gameInfoIni[3][0] //up	//パッドの場合FFで方向キーそのまま
+gameInfoIni[4][0] //down	//パッドの場合FFで方向キーそのまま
+gameInfoIni[5][0] //A	//PADのときはボタンの番号
+gameInfoIni[6][0] //B
+gameInfoIni[7][0] //C
+gameInfoIni[8][0] //D
+gameInfoIni[9][0] //pause
+
+gameInfoInput[0][0] //上	//入力。ボタンを押しているフレーム数
+gameInfoInput[1][0] //下	//下が正
+gameInfoInput[2][0] //上下入力
+gameInfoInput[3][0] //右	//右が正
+gameInfoInput[4][0] //A
+gameInfoInput[5][0] //B
+gameInfoInput[6][0] //C
+gameInfoInput[7][0] //D
+
+gameInfoPara[0][0] //自分X座標 float
+gameInfoPara[1][0] 0;
+gameInfoPara[2][0] //高さ float
+gameInfoPara[3][0] //霊力
+gameInfoPara[4][0] //符力 float
+gameInfoPara[5][0] //霊撃
+gameInfoPara[6][0] //霊力ゲージ回復までの時間
+gameInfoPara[7][0] //スペルカード宣言終わりまでの時間
+gameInfoPara[8][0] //空中ダッシュ
+gameInfoPara[9][0] //ダッシュ全般（後ろダッシュの判定ため）
+gameInfoPara[10][0] //壱符種類	自分のスペルカードの種類
+gameInfoPara[11][0] //弐符種類
+gameInfoPara[12][0] //体力バー本数
+gameInfoPara[13][0] //キャラの向き
+gameInfoPara[15][0] //状態
+gameInfoPara[16][0] //時符用
+gameInfoPara[17][0] //時符用
+
+gameInfoImpress[0][0] //ハンデ	3F00 / 3F40 / 3F80 / 3FC0 / 4000	//float 0.5 0.75 1 1.5 2.0
+gameInfoImpress[1][0] //自分体力
+gameInfoImpress[2][0] //自分チェインダメージ（自動でリセットされない）
+gameInfoImpress[3][0] //自分チェインヒット数（自動でリセットされない）
+

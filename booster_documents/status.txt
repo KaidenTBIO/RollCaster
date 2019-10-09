@@ -1,0 +1,15 @@
+statusの流れ
+
+gameInfoPara[15][1]	//萃夢想内でのキャラクター状態ID
+↓
+statusID = statusIDArray[ myGameInfo[15][1] ]	//th075Booster内での状態IDに変換
+↓
+statusArray[ statusID ][0]	//状態・分類１
+statusArray[ statusID ][1]	//状態・分類２
+statusArray[ statusID ][2]	//その状態になるための入力
+↓
+myGameInfo
+
+
+
+

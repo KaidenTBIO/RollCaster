@@ -1,0 +1,88 @@
+現状の印象付けの流れなど
+
+
+//過去のデータを見てコマンドを入力する
+void ReadAI(){
+	if(AIがON){
+		if(状況){
+			Address = AIbase + eigenValue[0][3];	//その系の状態の情報の場所
+			for(Counter=始める値; Counter<終わる値; Counter+=送る値){
+				Address2 = Address + Counter;
+				if(情報が無い){
+					//終わり
+					Counter = 終わる値
+				}else{
+					if(情報がHIT){
+						Counter = 終わる値
+						commandInput[0] = コマンド入力
+						decodeTime = デコードする時間
+					}
+				}
+			}
+		}
+	}
+}
+
+//印象付けしたデータを蓄積する
+void CallAI(){
+	if(AIがON){
+		
+		//ラインを新規設置
+		if(ラインを新規に開く状況){
+			for(Line=0; Line<10; Line++){
+				if(そのラインが空である){
+					//ライン初期設定
+					AIBuf[Line][0][0] = 値;
+					AIBuf[Line][1][0] = 値;
+					AIBuf[Line][2][0] = 値;
+					AIBuf[Line][3][0] = 値;
+					AIBuf[Line][4][0] = 値;
+					Line = 10;
+				}
+			}
+		}
+		
+		//各ラインの処理
+		for(Line=0; Line<10; Line++){
+			if(ラインが開いている){
+				
+				
+				処理
+				
+				
+				if(相関値が一定値以下){
+					//ラインを閉じる
+					if(好印象){
+						
+						処理
+						
+					}
+					if(悪印象){
+						
+						処理
+						
+					}
+					
+					ラインをクリアする処理（閉じる）
+				}
+			}
+		}
+		
+		//固有アドレス更新
+		eigenValue[1][2] = 値;
+		eigenValue[2][2] = 値;
+		eigenValue[3][2] = 値;
+		eigenValue[4][2] = 値;
+		
+		for(Counter=9; Counter>0; Counter--){
+			if(eigenValue[Counter][0]){
+				//値をチェック
+				if(eigenValue[Counter][2] >= eigenValue[Counter][0]){
+					eigenValue[Counter][2] = eigenValue[Counter][0] -1;
+				}
+				//固有アドレス計算
+				eigenValue[Counter - 1][3] = eigenValue[Counter][1] * eigenValue[Counter][2] + eigenValue[Counter][3];
+			}
+		}
+	}
+}

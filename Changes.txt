@@ -1,0 +1,86 @@
+12/02/21 v2.2c PERFECT EDITION
+  - Huge timing adjustments all around.
+    - Returned wait period to one frame, instead of one millisecond.
+      (This increases stability)
+    - Lessened length of frame rollback period.
+    - Completely rewrote frame wait loop, much more stable.
+    - Reduced CPU usage of rollbacks.
+    - Returned recv loop to blocking I/O. (except on Linux)
+  - Updated th075tool link.
+
+12/02/09 v2.2b
+  - Many timing adjustments.
+    - Frame rate should be less irregular now.
+    - Game speed changed slightly from 60.95 to 60.25 to match th075 speed.
+  - At request of original author, removed script mode, reverting to the
+    old CowCaster code version.
+  - When spectating, the Rollback DLL is loaded again!
+  - Put my twitter account in the documentation, because I'm vain.
+
+12/02/06 v2.2a
+  - Fixed spectator desyncs.
+
+12/02/05 v2.2 (post-final release!)
+  - Fixed desync issues. Probably.
+  - Fixed long-standing desync issue with the Linux support.
+  - Clipboard support added:
+    If an address is in your clipboard when you go to connect,
+    it will replace the default address.
+  - When spectating, the Rollback DLL is no longer loaded.
+
+11/01/31 v2.1a (probably final release)
+  - Smoothing over of packet loss added. (+1 rollback)
+
+10/09/03-rollback v2.1
+  - Fixed end of match freeze.
+  - Fixed .ini loading.
+  - Fixed useth075eDLL bug.
+  - Fixed small spectator bugs.
+  - Fixed th075.exe startup wait time.
+  - Rollback performance increase.
+  - Supports th075tool replay data.
+    ( http://iamp.mizuumi.net/index.php/Th075tool )
+
+10/02/28-rollback v2.0c Bugfix release.
+  - Fixed crashes related to simplified backgrounds.
+
+10/02/03-rollback v2.0b Bugfix release.
+  - Due to feedback from Japanese players, 61.0 FPS is now standard.
+  - Tweaked state storage. Possible stability improvement.
+  - Fixed end of match freeze. Again!
+
+10/01/01-rollback v2.0a Bugfix release.
+  - Fixed end of match freeze.
+  - Fixed random crashing and related desyncs.
+  - Fixed incorrect sound removal.
+  - Fixed small rewinding timing issue.
+
+09/12/22-rollback v2.0 ROLLCASTER
+  - Name changed from CowCaster to RollCaster.
+  - Changes file starting over.
+  - Features:
+    - Netplay rollbacks!
+      This is a major upgrade to netplay, using GGPO/NFBA-style rollbacks to
+      drastically reduce input delay and improve overall play.
+      - Fully backwards compatible with CowCaster and th075Caster.
+      - Can configure minimum input delay and maximum rewind frames.
+      - New timing loop used when rollbacks are enabled:
+        - Consistent, accurate 60FPS
+        - More accurate FPS counter
+        - Synchronization order more optimal for handling rollbacks
+      - Hold shift when pressing a delay number key to set rewind amount.
+      - Random stage select now never produces banned stages.
+      - Camera softening to reduce visual jitter.
+    - No longer prompts for name on startup.
+    - Menu text finally in English!
+  - Bugfixes
+    - Long-time bug with names/palettes not registering fixed.
+  - config_rollcaster.ini changes:
+    - Renamed to config_rollcaster.ini.
+    - Reorganized contents to be easier to read, and segmented into
+      normal and advanced sections.
+    - [ROLLBACK] section added. See ini file for information.
+    - origMenu added. Allows original menu text to be used.
+    - humanTime added. Prints match statistics in human readable form.
+    - acceptRecommendedDelay added. If delay is less than 10, automatically
+      accepts the suggested delay and starts the match.

@@ -1,0 +1,280 @@
+                           RollCaster
+                         12/02/21 v2.2c
+------------------------------------------------------------------
+
+- Home page:
+  http://wiki.mizuumi.net/w/Immaterial_and_Missing_Power/Rollcaster
+
+- IRC channel:
+  irc.mizuumi.net #iamp
+
+- Maintainer's twitter:
+  @mauvecow
+
+------------------------------------------------------------------
+- SETTING UP CASTER
+------------------------------------------------------------------
+
+Step by step guide:
+#1 - Patch IaMP to 1.11. The patch may be found at:
+     http://www.tasofro.net/touhou/download.html
+     or
+     http://wiki.mizuumi.net/stuff/th075_111s.exe
+
+#2 - If you have not unlocked all characters already, download and
+     use the full unlock file:
+     http://wiki.mizuumi.net/stuff/tools/score.dat
+
+#3 - Copy RollCaster.exe and config_rollcaster.ini from the exe
+     folder to the exact same folder that th075.exe is in.
+
+#4 - Edit config_rollcaster.ini to your preferences.
+     Such as your player name.
+
+#5 - Stop anything that might interfere with RollCaster: Most
+     notably anything that runs GameGuard.
+
+#6 - Run RollCaster, select 9: vs th075Booster. If all is well,
+     you will be brought to the character select screen.
+
+#7 - Use 1 to host a game, or 2 to connect to another user.
+     RollCaster will automatically calculate a recommended delay
+     value when you connect to each other.
+
+#8 - For matchmaking, setup IRC and go to irc.mizuumi.net #iamp
+     Be warned that the players there can be very skilled, but
+     people will listen if you ask to not play someone strong.
+
+=== Troubleshooting:
+
+- If you see a CharInit() error, there is a problem with your pad
+  configuration.
+
+- For anything else, you probably did something wrong.
+
+=== Router issues:
+
+- If you are behind a router, you will need to forward port 7500
+  to your computer in order to host to host. This is not required
+  to connect to another user.
+  - You may use 8: Test myPort to see if your port is open.
+    Simply use it on mizuumi.net to see if it works.
+
+- If neither user can forward ports, then you may connect to each
+  other through a relay.
+  Simply have both users use 7: Relay on mizuumi.net and, as
+  long as no one else is trying to connect, it should connect you
+  to each other. See below for more information.
+  Relay connections are a DIRECT CONNECTION and do not add lag.
+
+- If _that_ fails, you'll probably need to go get Hamachi, but
+  this should be considered a last resort.
+  (Hamachi is, however, much better than it used to be. Just make
+   sure you have a direct connection with it!)
+
+=== !!! IMPORTANT NOTE: !!!
+
+Replays recorded with Caster will NOT play back correctly in IaMP.
+This is because of a desync fix.
+
+To fix this, you will need a replay watcher.
+
+The latest version and usage instructions may be found at:
+http://wiki.mizuumi.net/w/Immaterial_and_Missing_Power/th075tool
+
+A direct download of th075tool and the old replay watcher if needed:
+http://mauve.sandwich.net/iamp/th075tool-20120211.zip
+
+http://mauve.sandwich.net/iamp/ReplayEx015.zip
+
+=== Linux support:
+
+Linux support is in as of the 080815 version. It is not complete,
+as hotkeys still don't work, but it's enough to get you up and
+running and able to play the game online without much trouble.
+
+It does require a lot more processing power than the Windows
+version, especially with rollbacks, so be ready.
+
+There is occasionally a problem where exiting IaMP will cause
+sound to cut out. For your entire system. I have absolutely no
+idea what causes this, but it can be 'fixed' by running th075e.exe
+or something through wine normally.
+
+------------------------------------------------------------------
+  ABOUT ROLLCASTER
+------------------------------------------------------------------
+
+th075Caster is a netplay tool for the game Touhou Suimusou:
+Immaterial and Missing Power.
+
+RollCaster is a mod for th075Caster that adds a huge pile of
+new features, including replay renaming, a practice dummy,
+customized player palettes, and of course GGPO/nFBA-style
+netplay rollbacks.
+
+RollCaster was originally named CowCaster, before rollbacks
+were added.
+
+This is maintained by mauve of irc.mizuumi.net's #iamp IRC
+channel, please stop by if you have any comments.
+
+The latest version of RollCaster may always be found at:
+http://wiki.mizuumi.net/w/Immaterial_and_Missing_Power/Rollcaster
+
+Original th075Caster site: http://njm4558.run.buttobi.net/
+
+------------------------------------------------------------------
+- USING CASTER
+------------------------------------------------------------------
+
+When you get to the main menu, you'll see a bunch of options.
+Here's a short rundown of what they do.
+
+0 : Exit
+    Quits RollCaster.
+
+1 : Host
+    Hosts for a game.
+
+2 : Connect
+    Connects to an address.
+
+3 : Spectate
+    Spectates a game at an address.
+    Waits until the game starts.
+
+4 : Local 2P Game
+    Plays a local two player game through Caster.
+    This allows spectating.
+
+5 : Get Information
+    Tells you the current state of another Caster.
+
+6 : Connect (Persistent mode)
+    Connects to an address and disallows timeouts.
+    It's never gonna give it up and it's never gonna let it down.
+
+7 : Relay (aka Standby)
+    Uses a server to connect two players to each other.
+    Both players use at the same time for this.
+
+8 : Test hosting port
+    Checks to see if you are capable of hosting a game.
+
+9 : vs th075Booster / Debug mode
+    Plays a local, one player game against either booster or
+    an idle debug mode.
+
+10: vs Practice Dummy
+    Uses RollCaster's practice dummy mode. It's buggy and
+    unreliable but hey, it's what you get.
+
+11: Script
+    Uses th075Caster's experimental lua scripting.
+
+------------------------------------------------------------------
+- AUTOMATIC REPLAY SAVING AND NAMING
+------------------------------------------------------------------
+
+Automatic replay saving is a special feature of rollCaster.
+To turn it on, simply edit config_rollcaster.ini and set
+autoSave to 1.
+
+You can also skip replay saving entirely by setting it to 2.
+
+Pressing - and = in game will turn it off and on, respectively.
+
+RollCaster also supports automatic replay file naming.
+config_rollcaster.ini has the details.
+
+------------------------------------------------------------------
+- CUSTOM PALETTES
+------------------------------------------------------------------
+
+RollCaster allows custom palettes.
+
+Please read the included Palette.txt for information.
+
+------------------------------------------------------------------
+- HOTKEY LIST
+------------------------------------------------------------------
+
+These are the default keys. You may reconfigure them in the
+[KEYBIND] portion of config_caster.ini
+
+Key     Action                              Notes
+------- ----------------------------------- ----------------------
+[       Turn off autoNext
+
+]       Turn on autoNext
+
+0 to 9  Change local buffer amount
+
+Shift + 0 to 9
+        Change max rollback amount          RollCaster only
+
+-       Disable automatic replay saving     RollCaster only
+
+=       Enable automatic replay saving      RollCaster only
+
+\       Cycle roundCount value              RollCaster only
+
+`       Toggle BGM                          RollCaster only
+
+/	Toggle alwaysOnTop                  RollCaster only
+
+F8      Infinite spirit cheat               In match only
+                                            RollCaster only
+
+Backsp  Stage manual / Stage free           Select menu only
+                                            Key ] in th075Caster
+
+Backsp  Toggle noFast                       In match only
+                                            RollCaster only
+
+'       Change custom palettes mode         Select menu only
+                                            RollCaster only
+
+'	Save remote palettes		    In match only
+                                            RollCaster only
+
+------------------------------------------------------------------
+- TH075BOOSTER
+------------------------------------------------------------------
+
+Booster is an enhanced AI that learns from playing. Without any
+data files it won't do anything, though.
+
+See http://wiki.mizuumi.net/w/Immaterial_and_Missing_Power/th075booster
+for more information, as well as th075Booster in config_rollcaster.ini
+
+------------------------------------------------------------------
+- COMMAND LINE PARAMETERS
+------------------------------------------------------------------
+
+The following command line parameters may be passed to Caster:
+
+-w         Automatically go into wait mode.
+-i ip      Caster will automatically try to connect to the address.
+-p port    Sets the port used for the -i parameter.
+-s ip      Caster will automatically try to spectate the address.
+-f         Uses info.ini to do the connection.
+           It can be set to:
+           - Wait for a connection
+           - Wait for a connection from a specific IP.
+           - Connect to an IP set in the file
+           See info.ini for more details.
+
+------------------------------------------------------------------
+- ENHANCED PRACTICE DUMMY
+------------------------------------------------------------------
+
+The practice dummy is a special feature of RollCaster added to
+help with training.
+
+The menu should be pretty self-explanatory.
+
+As AI goes is pretty much extremely dumb and can sometimes get hit
+even when it really shouldn't. Its guard reactions have a short
+delay, be ready for it if you use them.

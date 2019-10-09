@@ -1,0 +1,95 @@
+- CASTER CUSTOM PALETTE SUPPORT
+
+As of v1.5, released 07/10/09, custom color palettes are now supported in
+netplay! Any palettes you set or create will be sent to the other player
+when you select them. Please try not to use ones that interfere with
+gameplay.
+
+As of v1.7, released 07/11/26, it now includes a default set that fills all
+of the slots. Simply copy it along with the rest of Caster.
+
+See the included palette directory for credits information and whatnot.
+
+- HOW DO I SELECT CUSTOM PALETTES?
+
+When in the character select screen, hold up or down when pressing A or D to
+select your character.
+
+The inputs line up to these colors:
+
+    Up+A / 8A : color 1
+    Up+D / 8D : color 2
+  Down+A / 2A : color 3
+  Down+D / 2D : color 4
+
+- WHERE CAN I GET PALETTES?
+
+Random palette generator:
+http://mauve.sandwich.net/iamp/colors.php
+
+Random palette breeder:
+http://mauve.sandwich.net/iamp/breeder.cgi
+
+Man-made palettes:
+http://stuff.mizuumi.net/iamp/palette/
+http://www7a.biglobe.ne.jp/~kuen-hien/touhou.html
+http://www.geocities.jp/kagami8000/Suimusou/karapa.html
+
+- HOW DO I MAKE MY OWN PALETTES?
+
+http://iamp.mizuumi.net/index.php/Color_editor
+
+Should have all that you need.
+
+IMPORTANT: Custom colors edited directly into th075.dat and th075b.dat will
+NOT be transferred. It is recommended that you leave those alone unless you
+really want them to be different normally.
+
+- HOW DO I GET CASTER TO RECOGNIZE MY PALETTES?
+
+Create a folder named "palette" in the directory that contains th075.exe and
+RollCaster.exe. Then, simply save your custom colors in there in the following
+naming scheme:
+
+Character-n.pal , where n is the number of the color from 1 to 4.
+
+Examples:
+  palette\Reimu-1.pal
+  palette\Marisa-3.pal
+  palette\Sakuya-2.pal
+  palette\Alice-1.pal
+  palette\Youmu-2.pal
+  palette\Patchouli-4.pal
+  palette\Remilia-1.pal
+  palette\Yuyuko-3.pal
+  palette\Yukari-2.pal
+  palette\Suika-4.pal
+  palette\Meiling-1.pal
+
+And so forth. There are four color slots for each character, so a maximum of
+44 additional color slots have been added with RollCaster.
+
+- GOOD LORD, THE OTHER GUY'S COLORS ARE HIDEOUS, HOW DO I TURN THEM OFF?
+
+There are two options. One is to set processRemotePalettes to 1 or 2 in
+config_caster.ini, the other is to press the '(apostrophe) key while on the
+character select menu to cycle processRemotePalettes. This key is
+configurable in the [KEYBIND] section of config_caster.ini
+
+- WOW, THE OTHER GUY'S COLORS ARE COOL, HOW DO I SAVE THEM?
+
+Press '(apostrophe) while in a match. This key is configurable in the
+[KEYBIND] section of config_caster.ini
+
+Note that this is different from the function the key has at the character
+select menu.
+
+- HOW DO I VIEW THESE IN REPLAYS?
+
+You don't, unless you edit them into th075.dat or th075b.dat. Sorry.
+
+- WOW THE DEFAULT PALETTE COLORS SUCK
+
+A lot of them do!
+
+Replace them with your own!

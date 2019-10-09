@@ -1,0 +1,211 @@
+RollCaster、th075Casterの修正
+irc.mizuumi.net #iampのmauveによって管理されています
+RollCasterはｔｈ０７５Casterと互換性があります。
+
+*********  ユーザーインターフェースの改善。
+
+--- メニューがインプットを思い読み出します。
+
+メニューオプションは以前に入力したデータを読み出します、エンターを押すだけです。
+
+- config_rollcaster.ini : [MAIN] defaultIP
+
+"Try for Access"と"Spectate"と"Get Information" モードに初期のアドレスを入力します。
+ 
+- config_rollcaster.ini : [MAIN] defaultStandbyIP
+
+"Standby"と"Test my Port"モードに初期のアドレスを入力します。
+
+mizuumi.netはStandbyのリクエストを扱うサーバーを動かしています。
+
+- config_rollcaster.ini : [MAIN]
+
+--- メニューはもうポートを聞いてきません。
+
+7500が初期のポートだから、毎回それを聞く必要がありません。
+
+別のポートをつなぎ合わせる時にｘｘ.ｘｘ.ｘｘ.ｘｘ:7500書式を使ってください。
+
+--- ホスト名の変換が可能になりました。
+
+ＩＰを入力する必要はなく、代わりにホストネームを入力できます。
+
+--- 観戦モードが加えられました。
+
+「Spectate」 mode は接続前にゲームが始まるのを待つのを除いて、 「Try for Access」と同じです。
+対戦を観戦するために使われます。
+
+--- 自動ディレイ計算。
+
+ディレイを尋ねられた時に、Rollcasterは既定値を薦めます。使うにはエンターを押すだけです。
+
+--- 自動リプレイセービング。
+
+オートセーブをできないように、あるいはできるように(-)か(＝)のキーを押して
+
+- config_rollcaster.ini: [MAIN] autoSave
+
+初期の自動セーブ具合をセットします。
+
+--- プレイヤーの名前。
+
+Casterのクライアントに名前を指定するには[PLAYER]のNameとshortNameを設定してください
+設定しなかった場合、スタートアップ時に設定するよう要求されます
+[PLAYER]のdontNagForNameを1に設定することで、使用しないことができます。
+
+接続、観戦、Get Informationを使う時、他のプレイヤーは名前を見れます
+
+--- リプレイ自動リネーム
+
+autoSaveを使ってセーブされたリプレイを自動リネームするために[MAIN]のautoSaveReplayFileRenameを可能にします
+[MAIN]
+
+- config_rollcaster.ini: [MAIN] replayFilenameFormat
+
+これはリプレイがリネームされるときにファイルネームのフォーマットを入力します
+詳しい説明のためにconfig_rollcaster.iniを見てください
+
+--- roundShow対戦統計情報が加えられました。
+
+バックスラッシュキー( \ )は試合の統計情報の出力を繰り返します
+
+- config_rollcaster.ini : [MAIN] roundShow
+0 - 何もプリントしません
+1 - 会議の終わりに要約だけプリントします
+2 - 対戦インフォ全部プリントします
+
+--- 戦統計情報ファイルが加えられました。
+
+[MAIN] sessionLogが1なら、session_log.txtが生成されます。
+session_log.txtにはプレイされた対戦の情報が入っています。
+フォーマットはroundShow=2と同じです。
+
+このツール http://mauve.sandwich.net/iamp/sessionlogparse.zip を使って、
+過去の対戦の分析をもった他のファイルにsession_log.txtデータを引用できます。
+また、過去の対戦、対戦の平均所要時間、それぞれのキャラクターの勝率やほかの役立つ情報を見ることができます。
+
+--- ＢＧＭのトグルキーが加えられました。
+
+(`)キーがBGMをオン・オフします。
+
+- config_rollcaster.ini : [MAIN] bgmOff
+
+起動時にBGMを再生するようにするかどうか設定されます。
+
+--- NoFast mode added.NoFastモードが加えられました。
+
+バックスペースキーは高速再生を防ぎます。
+
+- config_rollcaster.ini: [MAIN] noFast
+
+起動時にnoFastを使用するかどうか設定されます。
+
+--- windowOnTopトグルが加えられました。
+
+スラッシュキー（　/　）はwindowOnTopの状態をオン・オフします。
+
+--- 配置可能キーバインド。
+
+config_rollcaster.iniの[KEYBIND]セクションはRollcasterが使うすべてのキーを環境設定するでしょう
+詳細はそれを見てください
+
+********* PRACTICE DUMMY
+
+１： Random guard crushes ランダムガードクラッシャーをします
+２： Repeat selectable move 選択された技を繰り返し
+３：　Jump, repeat selectable move ジャンプ、そして選択された技を繰り返し
+4: Random attack ランダム技をします
+5: Move randomly ランダムで動く
+6: Move and do selectable move randomly 動く、そして選択された技をランダムでします
+7: Jump ジャンプ
+8: Random Guard (with 5) ランダムガード(ニュートラル体で)
+9: Random Guard ランダムガード
+10: Standing Guard 立ちガード
+11: Crouching Guard 伏ガード
+12: Jumping Guard ジャンプガード
+13: One-hit Guard 一発ガード: 攻撃された後にガードします
+14: Do nothing 何もしません
+
+選択した後・・・
+
+- すべてのジャンプモード（3,7,12)はどのタイプのジャンプか尋ねられます
+- 受け身とリアクションモードを尋ねられます
+ 望まれたモードのためにそれらを加えてください (例えば６４+３=６７)
+  0 - No air tech 受身無し
+  1 - Forward air tech 前受身
+  2 - Backward air tech 後受身
+  3 - Random air tech ランダム受身
+  0 - No ground tech 移動起き上がり無し
+  4 - Forward ground tech 前移動起き上がり
+  8 - Backward ground tech 後移動起き上がり
+  12 - Random ground tech ランダム移動起き上がり
+  16 - React after being hit 攻撃された後に反応
+  32 - React after waking up起き上がり後に反応
+  64 - Don't react after blocking ガードの後に反応無し
+- ガードモード(8,9,10,11,12,13)、あるいは反応にセットしたら、反応動作をセットするように尋ねます
+  反応動作10を選んだら、動きを選ぶように尋ねます
+
+*** 意義深い！ ***
+
+ASAPモードとすべてのリアクションは１Fディレイがあります。
+また、ボットが行動の入力自体を次のフレームまで始めないため、１F隙などを検証するのに役立たない。
+
+********* カスタムカラーパレット
+
+--- パレットの使い方
+
+キャラクターを選ぶ時に、↑か↓を押しながらPかＤを押す
+
+8P / ↑+P : palette 1
+8D / ↑+D : palette 2
+2P / ↓+P : palette 3
+2D / ↓+D : palette 4
+
+--- パレットをセットします
+
+次のフォーマットにパレットを保存してください：
+
+palette\Reimu-1.pal
+palette\Marisa-1.pal
+palette\Sakuya-1.pal
+palette\Alice-1.pal
+palette\Patchouli-1.pal
+palette\Youmu-1.pal
+palette\Remilia-1.pal
+palette\Yuyuko-1.pal
+palette\Yukari-1.pal
+palette\Suika-1.pal
+palette\Meiling-1.pal
+
+１をパレットスロットのナンバーで切り換えてください。 例えば: palette\Meiling-4.pal
+
+
+--- パレットの消し方
+
+キャラクターを選ぶ時にクォートキー（ ' ）はパレットを写し出しモードを繰り返します
+
+- config_rollcaster.ini: [MAIN] processRemotePalettes
+
+0 = すべてのパレットを使います
+1 = 自分のパレットだけを使います
+2 = すべてのパレットを無視して
+
+--- パレットの保存
+
+対戦中にクォートキー（ ' ）を押すことでパレットを保存できます
+
+********* 他の変化
+
+- ウィンドウが選ばれなかったら、キーボード入力は無視されます。
+- 前のキャラクターはリプレイを保存したの後で思い出されます
+- 隠している符の不具合を正されました
+- F8キーは霊力無限チートのOnOffを切り替えます
+- autoNextonはautoNextに変更しました
+- autoNextは今いつでも利用できます。
+- システムスクリーンセーバーを消すためにdisableScreensaveｒが加わりました
+- ウィンドウズビスタの検出の不具合を正されました。
+-　Th07Boosterは速い再生速度で学ぶことが出来ます
+- 幽々子アイコン(人気のデマンド)
+
+
+

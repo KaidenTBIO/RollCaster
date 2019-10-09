@@ -1,0 +1,165 @@
+mainDatClassの概要
+
+----------class.cpp----------
+mainDatClass(WORD playerSideTemp){
+	//コンストラクタ
+	//クラスに属する変数初期化・AI初期設定・メモリを確保・myInfo設定
+	
+	playerSide = playerSideTemp
+	myInfo[20]
+	eigenValueSN[10][4]
+	eigenValueSW[10][4]
+	eigenValueSpell[10][4]
+	eigenValueLN[10][4]
+	eigenValueRecover[10][4]
+	eigenValueLocal[10][4]
+	AI = (char*)malloc( AIsizeArray[0] + AIsizeArray[1] + AIsizeArray[2] + AIsizeArray[3] );
+	myInfo[9] = (DWORD*)AI;
+}
+~mainDatClass(){
+	//デストラクタ
+	//入力初期化・必要ならAIを保存・メモリを開放
+	if(状況){
+		CloseAI();
+		CloseIndividualAI();
+		CloseLocalAI();
+	}
+	free(AI);
+}
+
+----------init.cpp----------
+DWORD mainDatInit(DWORD enInfoTemp){
+	//クラスの動作を決定・AI.datの処理・AIに属する変数の初期化
+	//enInfoTemp==0,1,2,0xF以外のとき相手の&myInfo[0]とみなしてenInfo展開
+	//return 0	次のループへ
+	//return 1	状況の変化待ち
+	//return 2	相手クラスの(DWORD)&myInfo[0]を要求
+	//return 0xF	エラー。ループから出る
+	//return (DWORD)&myInfo[0]	enInfoTemp==2のとき要求に応える
+	gameMode
+	AIMode
+	getName();
+	if(状況){
+		CloseAI();
+		CloseSpellAI();
+		CloseIndividualAI();
+		CloseLocalAI();
+		OpenAI(Name);
+		OpenSpellAI(Name);
+		OpenIndividualAI(Name,enName);
+		OpenLocalAI(Name);
+	}
+	CalcAddress();
+	ConvertIni();
+	statusInit();
+	
+	SNAIbase
+	SWAIbase
+	SpellAIbase
+	LNAIbase
+	RecoverAIbase
+	LocalAIbase
+}
+
+----------roop.cpp----------
+WORD RefleshDat(){
+	//萃夢想の状態を見て判断する。データの読み込み・格納
+	//return 0	次の段階へ
+	//return 1	状況の変化待ち
+	//return 0xF	ループの外へ
+	
+	gameInfoIni[10][6]
+	gameInfoInput[10][3]
+	gameInfoPara[20][3]
+	gameInfoImpress[10][3]
+	gameTime
+}
+void ConvertDat(){
+	//gameInfoを解釈してmyGameInfoに変換する。
+	//基本的にこの関数以外ではmyGameInfoの値は変えない（情報の同期のため）
+	myGameInfo[ _PAGE ][10][5]
+}
+void mainRoop(){
+	//AIModeや状況に応じて呼び出しを行う
+	//myGameInfoの情報は同期しているため、敵の情報は*enGameInfo[][][]で得られる。
+	if(状況){
+		CallSNAI();
+		CallSWAI();
+		CallSpellAI();
+		CallLNAI();
+		CallRecoverAI();
+		ReadSNAI();
+		ReadSWAI();
+		ReadSpellAI();
+		ReadLNAI();
+		ReadRecoverAI();
+		ManageAI();
+	}
+}
+void InputCommand(){
+	//commandinput[0]の入力をdecodeTime以降に行う。必要ならcommandInput[3]で長押し指定
+	commandInput[20]
+	decodeTime
+}
+
+----------ai.cpp----------
+void CallAI(){
+	//コマンドを入力する
+	commandInput[0]
+	decodeTime
+}
+void ReadAI(){
+	//状況を解釈してAIに反映する
+	AIBuf[][][]
+	eigenValue[10][4]
+}
+void ManageAI(){
+	//各層のAIをまとめる。
+	//ゆくゆくはAIから得た情報を総合的に判断する形にしたい。
+	//（それ用の配列を用意して、AIはそこに情報を格納→最後にまとめて判断）
+	commandInput[0]
+	commandInput[3]
+	decodeTime
+}
+
+----------file.cpp----------
+WORD OpenAI(Name){
+	//AI.datを開いてzlibで展開する。
+	//return 0	問題なし
+	//return 1	ファイルのオープンに失敗
+	//return 0xF	ファイルエラー
+}
+BOOL CloseAI(){
+	//AIをzlibで圧縮してAI.datに書き出す。
+	//return 0	問題なし
+	//return 1	書き出し失敗
+}
+
+----------develop.cpp----------
+BOOL GetName(){
+	//自分がどのキャラクターか判断する
+	//return 0	問題なし
+	//return 1	判定失敗
+	myName
+	myID
+}
+void CalcAddress(){
+	//アドレスを計算して格納する
+	gameInfoIni[10][6]
+	gameInfoInput[10][3]
+	gameInfoPara[20][3]
+	gameInfoImpress[10][3]
+	enGameInfo[ _PAGE ][10][5]
+}
+BOOL ConvertIni(){
+	//萃夢想のボタン設定を読み込んで解釈する。
+	//return 0	問題なし
+	//return 1	読み込み失敗
+	gameInfoIni[10][6]
+}
+void statusInit(){
+	//statusID関連の情報を格納する。
+	statusIDArray[800]
+	statusArray[256][3]
+	commandArray[256]
+}

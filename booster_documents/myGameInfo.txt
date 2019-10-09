@@ -1,0 +1,49 @@
+myGameInfoの概要
+//間違いがあるかも
+
+#define _status	0
+#define _status2 1
+#define _para	2
+#define _input	3
+#define _info	4
+
+myGameInfo[ _status ][0][0] = statusArray[ statusID ][0]; [1] バッファ [2] statusArray[ statusID ][0]
+myGameInfo[ _status ][1][0] = statusArray[ statusID ][1]; [1] バッファ [2] statusArray[ statusID ][1]
+myGameInfo[ _status ][2][0] = statusArray[ statusID ][2]; [1] バッファ [2] 差分(多少フィルタ)
+myGameInfo[ _status ][3][0] = 
+myGameInfo[ _status ][4][0] = 
+myGameInfo[ _status ][5][0] = statusID [1] gameTime [2] input	行動があったら更新（移動をフィルタ）
+myGameInfo[ _status ][6][0] = statusID [1] gameTime [2] input	行動があったら更新・定期的に0xFF導入
+myGameInfo[ _status ][7][0] = gameTime
+myGameInfo[ _status ][8][0] = statusID [1-4]バッファ
+myGameInfo[ _status ][9][0] = statusID
+myGameInfo[ _para ][0][0] = 敵が右:1 左:0
+myGameInfo[ _para ][1][0] = キョリ	[1] 荒いスケール		[3]元の値
+myGameInfo[ _para ][2][0] = 高さ	[1] 荒いスケール [2]中間スケール[3]元の値
+myGameInfo[ _para ][3][0] = 相手高さ(地上)(0基準) [1]相手高さ(空中・相対)(5基準) [2]自動
+myGameInfo[ _para ][4][0] = 
+myGameInfo[ _para ][5][0] = HP		[1] 差分
+myGameInfo[ _para ][6][0] = chainDMG	[1] 差分
+myGameInfo[ _para ][7][0] = chainHIT	[1] 差分
+myGameInfo[ _para ][8][0] = ↑0クリアされない
+myGameInfo[ _para ][9][0] = 
+myGameInfo[ _input ][0][0] = gameInfoInput[0][4];	//↑
+myGameInfo[ _input ][1][0] = gameInfoInput[1][4];	//↓
+myGameInfo[ _input ][2][0] = gameInfoInput[2][4];	//←
+myGameInfo[ _input ][3][0] = gameInfoInput[3][4];	//→
+myGameInfo[ _input ][4][0] = gameInfoInput[4][4];	//A	変化があったときのみ[2]に値が現れる
+myGameInfo[ _input ][5][0] = gameInfoInput[5][4];	//B	変化があったときのみ[2]に値が現れる
+myGameInfo[ _input ][6][0] = gameInfoInput[6][4];	//C	変化があったときのみ[2]に値が現れる
+myGameInfo[ _input ][7][0] = gameInfoInput[7][4];	//D	変化があったときのみ[2]に値が現れる
+myGameInfo[ _input ][8][0] =
+myGameInfo[ _input ][9][0] = 
+myGameInfo[ _info ][0][0] = キャラが右向き:1 左向き:0  [1] キャラが後ろ向き:1
+myGameInfo[ _info ][1][0] = 壁際でない:0 自分が壁際:1 相手が壁際:2
+myGameInfo[ _info ][2][0] = 霊力
+myGameInfo[ _info ][3][0] = 符
+myGameInfo[ _info ][4][0] = 霊撃
+myGameInfo[ _info ][5][0] = 宣言しているかどうか
+myGameInfo[ _info ][6][0] = ダッシュ	[1]次もダッシュできるかどうか
+myGameInfo[ _info ][7][0] = ＨＰゲージ本数
+myGameInfo[ _info ][8][0] = 符種類 [1] 符種類+ [2] 符statusID [4]キャラID（0～10）
+myGameInfo[ _info ][9][0] = 時符ゆっくり:1 停止:2 停止系の溜めアクション中:3
